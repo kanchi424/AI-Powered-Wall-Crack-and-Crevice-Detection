@@ -2,7 +2,7 @@
 """
 Created on Sat Aug 31 01:06:21 2024
 
-@author: vedan
+@author: vedang
 """
 import cv2
 import tensorflow as tf
