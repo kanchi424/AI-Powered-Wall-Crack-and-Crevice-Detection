@@ -1,0 +1,38 @@
+#created by vedang
+
+import tensorflow as tf
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+# Define image size and batch size
+IMG_SIZE = (128, 128)
+BATCH_SIZE = 32
+
+# Data augmentation and normalization
+datagen = ImageDataGenerator(
+    rescale=1./255,
+    validation_split=0.2,  # Use 20% of data for validation
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True,
+    fill_mode='nearest'
+)
+
+# Load training and validation data
+train_generator = datagen.flow_from_directory(
+    'dataset/train/',
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='binary',
+    subset='training'  # Set as training data
+)
+
+validation_generator = datagen.flow_from_directory(
+    'dataset/train/',
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='binary',
+    subset='validation'  # Set as validation data
+)
