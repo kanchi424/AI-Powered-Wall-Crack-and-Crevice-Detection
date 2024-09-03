@@ -2,7 +2,7 @@
 """
 Created on Fri Aug 30 23:35:19 2024
 
-@author: vedan
+@author: vedang
 """
 
 from tensorflow.keras import layers, models
